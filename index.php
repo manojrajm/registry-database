@@ -81,7 +81,8 @@ $mysqli->close();
     </div> -->
 
     <div class="entries" >
-    <?php echo $rows_count_value?>
+        <h5>Total Number of Entries</h5><br>
+    <br><h3 class="value"><?php echo $rows_count_value?></h3>
 </div>
 
 
@@ -199,8 +200,8 @@ $mysqli->close();
     }
     .entries{
         position: fixed;
-        top: 20px;
-        left: 30%;
+        top: 5%;
+        left: 20%;
         width: 10%;
         height: 10%;
         box-shadow: 0 8px 10px 0 rgba(0,0,0,0.2);
@@ -215,16 +216,27 @@ $mysqli->close();
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
     }
+    .entries h4{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .entries h2{
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+    }
 </style>
 
 <script>
 
-    let menuToggle = document.querySelector('.toggle');
-    let navigation = document.querySelector('.navigation')
-    menuToggle.onclick = function(){
-        menuToggle.classList.toggle('active');
-        navigation.classList.toggle('active')
-    }
+    // let menuToggle = document.querySelector('.toggle');
+    // let navigation = document.querySelector('.navigation')
+    // menuToggle.onclick = function(){
+    //     menuToggle.classList.toggle('active');
+    //     navigation.classList.toggle('active')
+    // }
 
     let list = document.querySelectorAll('.list');
     for(let i=0; i<list.length; i++){
