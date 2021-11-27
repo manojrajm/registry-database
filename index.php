@@ -146,9 +146,9 @@ $mysqli->close();
                                         <td><?php echo $detail['returndate']; ?></td>
                                         <td><?php
                                             if ($detail['returnbutton'] == "0")
-                                                echo "<p class='return'>Returned</p>";
+                                                echo "<p class='return'>Not Yet</p>";
                                             else
-                                                echo "<p class='not-return'>Not Yet</p>";
+                                                echo "<p class='not-return'>Returned</p>";
                                             ?>
                                         </td>
                                     </tr>
@@ -218,10 +218,14 @@ $mysqli->close();
 </html>
 
 <style>
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        font-family: 'Quicksand', sans-serif;
+        /* font-family: poppins,sans-serif; */
+        font-weight: 550;
     }
 
     body {

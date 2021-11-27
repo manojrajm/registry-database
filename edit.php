@@ -86,7 +86,7 @@ if(isset($_POST['update'])) // when click on Update button
                     <label for="lname">Issue Date</label>
                 </div>
                 <div class="col-75">
-                    <input type="date" id="lname" name="issuedate" value="<?php echo $data['issuedate']?>" disabled> 
+                    <input type="text" id="lname" name="issuedate" value="<?php echo $data['issuedate']?>" disabled> 
                     <input type="text" name="returnbutton" value="0" hidden>
                 </div>
             </div>

@@ -1,7 +1,8 @@
-
 <?php
 include "connection.php";
-$mydate=getdate(date("U"));
+$mydate = getdate(date("U"));
+$date = ''.$mydate['mday'].''.$mydate['month']. ''.$mydate['year'].'';
+
 ?>
 
 <!DOCTYPE html>
@@ -102,14 +103,18 @@ $mydate=getdate(date("U"));
         <?php } ?>
     </div>
 
-<div style="display: flex; flex-direction:row;justify-content:space-between">
-    <a href="addcomponent.php" style="text-decoration: none;"><h2>Add Component</h2></a>
-    <div style="display: flex;">
-    <a href="list.php" style="text-decoration: none;
+    <div style="display: flex; flex-direction:row;justify-content:space-between">
+        <a href="addcomponent.php" style="text-decoration: none;">
+            <h2>Add Component</h2>
+        </a>
+        <div style="display: flex;">
+            <a href="list.php" style="text-decoration: none;
 
-    "><h2> LIST</h2></a>
+    ">
+                <h2> LIST</h2>
+            </a>
+        </div>
     </div>
-</div>
     <div class="container">
         <form method="GET">
             <div class="row">
@@ -150,8 +155,10 @@ $mydate=getdate(date("U"));
                     <label for="lname">Issue Date</label>
                 </div>
                 <div class="col-75">
-                    <input type="text" id="lname" name="issuedate" value="<?php 
-                    echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
+                    <input type="text" id="lname" name="issuedate" value="
+                    <?php
+                    echo date('d/m/Y', strtotime($date));
+                    // echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
                     ?>">
                     <input type="text" name="returnbutton" value="0" hidden>
                     <input type="text" name="damage" value="0" hidden>
@@ -160,7 +167,7 @@ $mydate=getdate(date("U"));
             <br>
             <div class="row">
                 <input type="submit" value="Add" name="submit">
-                
+
             </div>
 
         </form>
