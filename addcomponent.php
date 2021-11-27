@@ -1,51 +1,3 @@
-<?php
-include "connection.php";
-// include "handler.php"
-?>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <title>Components Entry</title>
-</head>
-
-<body>
-    <div>
-        <?php
-        if (isset($_REQUEST['info'])) { ?>
-
-            <?php
-            if ($_REQUEST['info'] == "added") { ?>
-
-                <div class="alert alert-success" role="alert">
-                    Registerd successfull
-                </div>
-
-            <?php } ?>
-        <?php } ?>
-    </div>
-    <form method="GET">
-        <input type="text" name="rollnumber" placeholder="Rollnumber">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="components" placeholder="components">
-        <input type="date" name="issuedate" placeholder="issuedate">
-        <input type="text" name="returnbutton" value="0" hidden>
-        <input type="submit" value="submit" name="submit">
-    </form>
-
-
-    <a href="list.php" type="button" class="btn btn-primary">list</a>
-
-</body>
-
-</html> -->
-
 
 <?php
 include "connection.php";
@@ -200,7 +152,7 @@ $mydate=getdate(date("U"));
                 <div class="col-75">
                     <input type="text" id="lname" name="issuedate" value="<?php 
                     echo "$mydate[weekday], $mydate[month] $mydate[mday], $mydate[year]";
-                    ?>" placeholder="Enter component" disabled>
+                    ?>">
                     <input type="text" name="returnbutton" value="0" hidden>
                     <input type="text" name="damage" value="0" hidden>
                 </div>
