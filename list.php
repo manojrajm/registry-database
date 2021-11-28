@@ -93,6 +93,7 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
                         <table id="myTable">
                             <thead>
                                 <tr>
+                                    <td> </td>
                                     <td>S.no</td>
                                     <td>RollNumber</td>
                                     <td>Name</td>
@@ -107,6 +108,8 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
                             <tbody id="geeks">
                                 <?php foreach ($details as $detail) { ?>
                                     <tr>
+                                        <td><a class="edit" style="" href="edit.php?id=<?php echo $detail['id']; ?>">
+                                        <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Edit</a></td>
                                         <td><?php echo $detail['id'] ?></td>
                                         <td><?php echo $detail['rollnumber']; ?></td>
                                         <td><?php echo $detail['name']; ?></td>
@@ -114,7 +117,6 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
                                         <!-- <td><?php echo $detail['number']; ?></td> -->
                                         <td><?php echo $detail['issuedate']; ?></td>
                                         <td><?php echo $detail['returndate']; ?>
-                                        <a href="edit.php?id=<?php echo $detail['id']; ?>">Edit</a>
                                     </td>
                                         <td>
                                             <?php
@@ -194,6 +196,10 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
 <style>
     /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+    .edit{
+        color: darkblue;
+        text-decoration:none
+    }
     .success{
         border-radius: 6px;
         padding: 8px 15px;
