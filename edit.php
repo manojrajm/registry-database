@@ -33,20 +33,6 @@ if(isset($_POST['update'])) // when click on Update button
 
 
 <h3>Update return date</h3>
-
-<!-- <form method="POST">
-    <input disabled type="text" value="<?php echo $data['rollnumber']?>">
-    <input disabled type="text" value="<?php echo $data['name']?>">
-    <input disabled type="text" value="<?php echo $data['components']?>">
-
-    <input disabled type="text" value="<?php echo $data['issuedate']?>">
-    <input type="date" name="returndate" value="<?php echo $data['returndate'] ?>"  Required>
-  <input type="text" name="damage" value="<?php echo $data['damage'] ?>"  Required>
-  <input type="submit" name="update" value="Update">
-</form> -->
-
-
-
 <div class="container">
         <form method="POST">
             <div class="row">
@@ -95,7 +81,7 @@ if(isset($_POST['update'])) // when click on Update button
                     <label for="lname">Return Date</label>
                 </div>
                 <div class="col-75">
-                    <input type="date" id="lname" name="returndate" value="<?php echo $data['returndate'] ?>" required>
+                    <input type="date" id="lname" name="returndate" value="<?php echo $data['returndate'] ?>" >
                 </div>
             </div>
 

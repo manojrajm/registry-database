@@ -431,7 +431,7 @@ $mysqli->close();
     .details .recentOrders {
         position: relative;
         display: grid;
-        min-height: 530px;
+        min-height: 130px;
         background: #fff;
         padding: 20px;
     }

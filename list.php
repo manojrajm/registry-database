@@ -1,10 +1,19 @@
-
 <?php
 $con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
 
 $sql = "SELECT * FROM list";
 $Sql_query = mysqli_query($con, $sql);
 $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
+
+
+if (isset($_REQUEST['delete'])) {
+    $id = $_REQUEST['id'];
+
+    $sql =  "DELETE FROM list WHERE id = $id";
+    $query  = mysqli_query($con, $sql);
+    header("Location: ./index.php?info=deleted");
+    exit;
+}
 ?>
 
 <?php include "update.php"; ?>
@@ -22,7 +31,7 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
 
 </head>
 
-<body >
+<body>
     <div class="container">
         <div class="navigation">
             <ul>
@@ -94,11 +103,11 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
                             <thead>
                                 <tr>
                                     <td> </td>
+                                    <td> </td>
                                     <td>S.no</td>
                                     <td>RollNumber</td>
                                     <td>Name</td>
                                     <td>Components</td>
-                                    <!-- <th>Mobile Number</th> -->
                                     <td>Issued Date</td>
                                     <td>Return Date</td>
                                     <td>Damage</td>
@@ -108,16 +117,27 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
                             <tbody id="geeks">
                                 <?php foreach ($details as $detail) { ?>
                                     <tr>
+                                        <input type="text" hidden name="id" value="<?php echo $detail['id']; ?>">
+
                                         <td><a class="edit" style="" href="edit.php?id=<?php echo $detail['id']; ?>">
-                                        <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Edit</a></td>
+                                                <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Edit</a></td>
+
+                                        <td> <i style="color:red;" class='far fa-trash-alt'></i>&nbsp;
+                                            <input style="border: none;background:none;font-size:1rem;cursor:pointer;color:red" type="submit" name="delete" value="Delete">
+                                        </td>
+
                                         <td><?php echo $detail['id'] ?></td>
+
                                         <td><?php echo $detail['rollnumber']; ?></td>
+
                                         <td><?php echo $detail['name']; ?></td>
+
                                         <td><?php echo $detail['components']; ?></td>
-                                        <!-- <td><?php echo $detail['number']; ?></td> -->
+
                                         <td><?php echo $detail['issuedate']; ?></td>
+
                                         <td><?php echo $detail['returndate']; ?>
-                                    </td>
+                                        </td>
                                         <td>
                                             <?php
                                             if ($detail['damage'] == "0")
@@ -186,8 +206,6 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
                 });
             });
         });
-
-
     </script>
 </body>
 
@@ -196,24 +214,28 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
 <style>
     /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-    .edit{
+
+    .edit {
         color: darkblue;
-        text-decoration:none
+        text-decoration: none
     }
-    .success{
+
+    .success {
         border-radius: 6px;
         padding: 8px 15px;
         background: #f4b41a;
-        text-decoration:none;
+        text-decoration: none;
         color: black;
     }
-    .danger{
+
+    .danger {
         border-radius: 6px;
         padding: 8px 15px;
         background: #143d59;
-        text-decoration:none;
+        text-decoration: none;
         color: white;
     }
+
     * {
         margin: 0;
         padding: 0;
@@ -428,7 +450,7 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
         margin-top: 10px;
         position: relative;
         display: grid;
-        min-height: 530px;
+        min-height: 130px;
         background: #fff;
         padding: 20px;
     }
@@ -510,6 +532,7 @@ $details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
 
         text-align: center;
     }
+
     /* Responsive */
     @media (max-width:992px) {
         .navigation {
