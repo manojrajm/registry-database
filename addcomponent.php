@@ -139,15 +139,15 @@ $date = ''.$mydate['mday'].''.$mydate['month']. ''.$mydate['year'].'';
                 </div>
                 <div class="col-75" style="justify-content: row;">
                     <input type="text" id="lname" name="components" placeholder="Enter component" required>
-                    <input type="number" id="lname" name="count" value="1">
+                    <!-- <input type="number" id="lname" name="count" value="1"> -->
                 </div>
             </div>
-            <div class="row">
+            <div  class="row">
                 <div class="col-25">
                     <label for="lname">Number</label>
                 </div>
                 <div class="col-75">
-                    <input type="number" id="lname" name="number" placeholder="Enter Number" required>
+                    <input type="number"  id="lname" name="number" placeholder="Enter Number" required>
                 </div>
             </div>
             <div class="row">

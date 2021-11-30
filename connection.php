@@ -13,7 +13,8 @@
     if(isset($_REQUEST['submit'])){
         $rollnumber = $_REQUEST["rollnumber"];
         $name = $_REQUEST["name"];
-        $components =$_REQUEST["components"] . " " . $_REQUEST["count"];
+        // $components =$_REQUEST["components"] . " " . $_REQUEST["count"];
+        $components =$_REQUEST["components"];
         $issuedate = $_REQUEST["issuedate"];
         $returndate = $_REQUEST["returndate"];
         $damage = $_REQUEST["damage"];
