@@ -73,7 +73,7 @@ $mysqli->close();
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="./login.php">
                         <span class="icon">
                             <i class="fas fa-sign-in-alt"></i>
                         </span>

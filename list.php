@@ -104,7 +104,7 @@ if (isset($_REQUEST['delete'])) {
                                 <tr>
                                     <td> </td>
                                     <td> </td>
-                                    <td>S.no</td>
+                                    <!-- <td>S.no</td> -->
                                     <td>RollNumber</td>
                                     <td>Name</td>
                                     <td>Components</td>
@@ -126,7 +126,7 @@ if (isset($_REQUEST['delete'])) {
                                             <input style="border: none;background:none;font-size:1rem;cursor:pointer;color:red" type="submit" name="delete" value="Delete">
                                         </td>
 
-                                        <td><?php echo $detail['id'] ?></td>
+                                        <!-- <td><?php echo $detail['id'] ?></td> -->
 
                                         <td><?php echo $detail['rollnumber']; ?></td>
 
