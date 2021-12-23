@@ -1,4 +1,5 @@
 <?php
+session_start();
 $con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
 
 $sql = "SELECT * FROM list";
@@ -27,7 +28,7 @@ if (isset($_REQUEST['delete'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Document</title>
+    <title>IoT</title>
 
 </head>
 
@@ -36,7 +37,7 @@ if (isset($_REQUEST['delete'])) {
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="">
+                    <a href="index.php">
                         <span class="icon"></span>
                         <span class="title">
                             <h2>IoT</h2>
@@ -68,19 +69,34 @@ if (isset($_REQUEST['delete'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                <?php if($_SESSION['name']){?>
+                    <a href="./logout.php">
                         <span class="icon">
-                            <i class="fas fa-sign-in-alt"></i>
+                        <i class="fas fa-sign-out-alt"></i>
                         </span>
-                        <span class="title">Login</span>
+                        <span class="title">Logout</span>
                     </a>
+                    <?php } else echo "<a href='./login.php'>
+                        <span class='icon'>
+                            <i class='fas fa-sign-in-alt'></i>
+                        </span>
+                        <span class='title'>Login</span>
+                    </a>"?>
                 </li>
             </ul>
         </div>
-
+<?php if($_SESSION['admin'] == 1)
+{?>
         <div class="main">
             <div class="topbar">
                 <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
+                <div class="login-form">
+                     <?php if($_SESSION['name']){
+                        ?> You've logged in <?php echo  $_SESSION["name"]; ?>
+                    <?php }
+                    else echo "<h2>You've not logged in</h2>"?>                     
+                    </div>
+               
                 <div class="search">
                     <label>
                         <input type="text" id="gfg" placeholder="Search Here" title="Type in a name">
@@ -165,6 +181,8 @@ if (isset($_REQUEST['delete'])) {
                 </div>
             </div>
         </div>
+
+        <?php } else echo "<div class='notlogged'>  This page is restricted.Ask your Admin </div>"?>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
@@ -214,7 +232,11 @@ if (isset($_REQUEST['delete'])) {
 <style>
     /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-
+        .notlogged{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     .edit {
         color: darkblue;
         text-decoration: none

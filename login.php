@@ -25,8 +25,6 @@
           $sqll = "SELECT id FROM new where email = '$email'";
           $resultt = mysqli_query($conn, $sqll);
           while ($row = mysqli_fetch_array($resultt)) {
-            // $_SESSION['email'] = $user_data['email'];
-            
             if($user_data['admin'] === 'admin' )
             {
 
@@ -59,13 +57,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Blogging</title>
+    <title>IoT</title>
 </head>
 <body>
 <div class="container">
     <div class="title">LogIn</div>
     <div class="content">
-      <form method="POST">
+      <form method="POST"  action="loginProcess.php">
         <div class="user-details">
           <div class="input-box">
             <span class="details">Email</span>

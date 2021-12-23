@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
 $databaseHost = 'localhost';   //your db host 
 $databaseName = 'iot-component';  //your db name 
@@ -31,8 +32,9 @@ $mysqli->close();
     <!-- <meta http-equiv="refresh" content="2"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>IoT</title>
 
 </head>
 
@@ -73,12 +75,19 @@ $mysqli->close();
                     </a>
                 </li>
                 <li>
-                    <a href="./login.php">
+                    <?php if($_SESSION['name']){?>
+                    <a href="./logout.php">
                         <span class="icon">
-                            <i class="fas fa-sign-in-alt"></i>
+                        <i class="fas fa-sign-out-alt"></i>
                         </span>
-                        <span class="title">Login</span>
+                        <span class="title">Logout</span>
                     </a>
+                    <?php } else echo "<a href='./login.php'>
+                        <span class='icon'>
+                            <i class='fas fa-sign-in-alt'></i>
+                        </span>
+                        <span class='title'>Login</span>
+                    </a>"?>
                 </li>
             </ul>
         </div>
@@ -86,6 +95,12 @@ $mysqli->close();
         <div class="main">
             <div class="topbar">
                 <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
+                <div class="login-form">
+                     <?php if($_SESSION['name']){
+                        ?> You've logged in <?php echo  $_SESSION["name"]; ?>
+                    <?php }
+                    else echo "<h2>You're not logged in</h2>"?>                     
+                    </div>
                 <div class="search">
                     <label >
                         <input type="text" id="gfg" placeholder="Search Here" title="Type in a name">

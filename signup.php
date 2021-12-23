@@ -33,7 +33,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Blogging</title>
+    <title>IoT</title>
 </head>
 <body>
 
@@ -66,6 +66,7 @@
           <div class="input-box">
             <span class="details">Password</span>
             <input name="password" type="password" placeholder="Enter your password" required>
+            <input type="text" value="0" name="admin" hidden>
           </div>
         
         </div>

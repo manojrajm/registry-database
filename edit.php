@@ -4,13 +4,13 @@ $conn = mysqli_connect("localhost" , "Bala" , "Bala@2703" , "iot-component");
 if(!$conn) {
     echo "The database is not connected";
 }
-$id = $_GET['id']; // get id through query string
+$id = $_GET['id']; 
 
-$qry = mysqli_query($conn,"select * from list where id='$id'"); // select query
+$qry = mysqli_query($conn,"select * from list where id='$id'"); 
 
-$data = mysqli_fetch_array($qry); // fetch data
+$data = mysqli_fetch_array($qry); 
 
-if(isset($_POST['update'])) // when click on Update button
+if(isset($_POST['update']))
 {
     $returndate = $_POST['returndate'];
     $damage = $_POST['damage'];
@@ -19,8 +19,8 @@ if(isset($_POST['update'])) // when click on Update button
 	
     if($edit)
     {
-        mysqli_close($conn); // Close connection
-        header("location:list.php"); // redirects to all records page
+        mysqli_close($conn); 
+        header("location:list.php"); 
         exit;
     }
     else
