@@ -67,7 +67,7 @@ $mysqli->close();
                     </a>
                 </li>
                 <li>
-                    <a href="./addcomponent.php">
+                    <a href="./add.php">
                         <span class="icon">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -82,7 +82,7 @@ $mysqli->close();
                         </span>
                         <span class="title">Logout</span>
                     </a>
-                    <?php } else echo "<a href='./login.php'>
+                    <?php } else echo "<a href='./signin.php'>
                         <span class='icon'>
                             <i class='fas fa-sign-in-alt'></i>
                         </span>

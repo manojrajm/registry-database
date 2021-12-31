@@ -67,7 +67,7 @@ $date = '' . $mydate['mday'] . '' . $mydate['month'] . '' . $mydate['year'] . ''
                             </span>
                             <span class="title">Logout</span>
                         </a>
-                    <?php } else echo "<a href='./login.php'>
+                    <?php } else echo "<a href='./signin.php'>
                         <span class='icon'>
                             <i class='fas fa-sign-in-alt'></i>
                         </span>
@@ -139,7 +139,7 @@ $date = '' . $mydate['mday'] . '' . $mydate['month'] . '' . $mydate['year'] . ''
     </div>
 
     <div style="display: flex; flex-direction:row;justify-content:space-between">
-        <a href="addcomponent.php" style="text-decoration: none;">
+        <a href="add.php" style="text-decoration: none;">
             <h2>Add Component</h2>
         </a>
         <div style="display: flex;">

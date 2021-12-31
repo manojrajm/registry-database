@@ -13,16 +13,17 @@
     if(isset($_REQUEST['submit'])){
         $rollnumber = $_REQUEST["rollnumber"];
         $name = $_REQUEST["name"];
+        $email = $_REQUEST["email"];
         // $components =$_REQUEST["components"] . " " . $_REQUEST["count"];
         $components =$_REQUEST["components"];
-        $issuedate = $_REQUEST["issuedate"];
+        $issuedate = $_REQUEST["issuedate"] . "/" . $_REQUEST["issuemonth"] . "/" . $_REQUEST["issueyear"];
         $returndate = $_REQUEST["returndate"];
         $damage = $_REQUEST["damage"];
         $number = $_REQUEST["number"];
         $returnbutton = $_REQUEST["returnbutton"];
 
-        $sql = "INSERT INTO list(rollnumber,name,components,issuedate,returndate,damage,number,returnbutton)
-         VALUES ('$rollnumber' , '$name' , '$components','$issuedate','$returndate' , '$damage' ,'$number', '$returnbutton')";
+        $sql = "INSERT INTO list(rollnumber,name,email,components,issuedate,returndate,damage,number,returnbutton)
+         VALUES ('$rollnumber' , '$name' , '$email' , '$components','$issuedate','$returndate' , '$damage' ,'$number', '$returnbutton')";
     if ($conn->query($sql) === TRUE) {
         echo "New record created successfully";
       } else {
@@ -30,7 +31,7 @@
       }
       
       $conn->close(); 
-      header("Location: ./addcomponent.php?info=added");
+      header("Location: ./add.php?info=added");
       exit();   
     
 }

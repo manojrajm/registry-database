@@ -27,7 +27,8 @@ if (isset($_REQUEST['delete'])) {
     <!-- <meta http-equiv="refresh" content="2"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>IoT</title>
 
 </head>
@@ -61,7 +62,7 @@ if (isset($_REQUEST['delete'])) {
                     </a>
                 </li>
                 <li>
-                    <a href="./addcomponent.php">
+                    <a href="./add.php">
                         <span class="icon">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -76,7 +77,7 @@ if (isset($_REQUEST['delete'])) {
                         </span>
                         <span class="title">Logout</span>
                     </a>
-                    <?php } else echo "<a href='./login.php'>
+                    <?php } else echo "<a href='./signin.php'>
                         <span class='icon'>
                             <i class='fas fa-sign-in-alt'></i>
                         </span>
@@ -182,8 +183,9 @@ if (isset($_REQUEST['delete'])) {
             </div>
         </div>
 
-        <?php } else echo "<div class='notlogged'>  This page is restricted.Ask your Admin </div>"?>
+       
     </div>
+    <?php } else echo "<div class='notlogged'>  This page is restricted.Ask your Admin </div>"?>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
