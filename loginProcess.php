@@ -11,7 +11,9 @@
         $_SESSION["admin"] = $row['admin'];
 
         } else {
-            $message = "Invalid Username or Password!";
+            // $message = "Invalid Username or Password!";
+            echo "Invalid Username or password";
+            echo "<h3> <a href='signin.php'>Back to Login<a/></h3>";
         }
     }
     if(isset($_SESSION["id"])) {

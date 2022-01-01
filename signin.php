@@ -147,8 +147,8 @@ if (isset($_REQUEST['delete'])) {
                     <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
                     <div class="login-form">
                         <?php if ($_SESSION['name']) {
-                        ?> You've logged in <?php echo  $_SESSION["name"]; ?>
-                        <?php } else echo "<h2>You've not logged in</h2>" ?>
+                        ?> Howdy, <?php echo  $_SESSION["name"]; ?>
+                        <?php } else echo "<h2></h2>" ?>
                     </div>
 
                     <div class="search">
@@ -162,52 +162,20 @@ if (isset($_REQUEST['delete'])) {
                 <div class="containerr">
                     <form method="POST" action="loginProcess.php">
                         <div class="row">
-                            <h4>SignIn</h4>
-                            <!-- <div class="input-group input-group-icon">
-                                <input type="text" name="name" style="text-transform: uppercase;"  placeholder="FULL NAME" required />
-                                <div class="input-icon"><i class="fa fa-user"></i></div>
-                            </div> -->
+                            <h3 class="signin" style="margin-bottom: 10px;">SignIn</h3>
                             <div class="input-group input-group-icon">
-                                <input type="email" name="email" placeholder="Email Address" />
+                                <input type="email" name="email" placeholder="Email"  required/>
                                 <div class="input-icon"><i class="fa fa-envelope"></i></div>
                             </div>
                             <div class="input-group input-group-icon">
-                                <input type="password" name="password" style="text-transform: uppercase;" placeholder="Roll Number" />
+                                <input type="password" name="password"  placeholder="password" required />
                                 <div class="input-icon"><i class="fa fa-key"></i></div>
                             </div>
-                            <!-- <div class="input-group input-group-icon">
-                                <input type="text" name="number" placeholder="Number" />
-                                <div class="input-icon"><i class="fa fa-mobile"></i></div>
-                            </div>
-                            <div class="input-group input-group-icon">
-                                <input type="text" name="components" placeholder="Components" />
-                            </div> -->
                         </div>
-                        <!-- <div class="row">
-                            <div class="col-half">
-                                <h4>ISSUE DATE</h4>
-                                <div class="input-group">
-                                    <div class="col-third">
-                                        <input type="text" name="issuedate" placeholder="DD"
-                                         value="<?php echo date('d', strtotime($date));?>" />
-                                    </div>
-                                    <div class="col-third">
-                                        <input type="text" name="issuemonth" placeholder="MM"
-                                        value="<?php echo date('m', strtotime($date));?>" />
-                                    </div>
-                                    <div class="col-third">
-                                        <input type="text" name="issueyear" placeholder="YYYY"
-                                        value="<?php echo date('y', strtotime($date));?>" />
-                                        <input type="text" name="returnbutton" value="0" hidden>
-                                        <input type="text" name="damage" value="0" hidden>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
                         <div class="row">
-                            <input type="submit" value="SignIn" name="login">
-
+                            <input style="border-color: #03a9f4;" type="submit" value="SignIn" name="login">
                         </div>
+                        <div style="margin-top: 10px;" class="register">Don't have an account? <a href="signup.php">Register</a></div>
                     </form>
                 </div>
             </div>
@@ -602,15 +570,6 @@ if (isset($_REQUEST['delete'])) {
             width: 100%;
             left: 0;
         }
-
-        /* .main.active{
-            width: calc(100% - 60%);
-            left: 60px;
-        } */
-        /* .cardBox{
-            grid-template-columns: repeat(2,1fr);
-            grid-gap: 20px;
-        } */
     }
 
     @media (max-width:758px) {
@@ -658,23 +617,7 @@ if (isset($_REQUEST['delete'])) {
     }
 
 
-
-
-
-    /* 64ac15 */
-    /* *,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
-body {
-  padding: 1em;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
-  color: #b9b9b9;
-  background-color: #e3e3e3;
-} */
-    h4 {
+    .signin {
         color: #f0a500;
     }
 
@@ -867,9 +810,9 @@ body {
         justify-content: center;
         align-items: center;
         display: flex;
-        max-width: 38em;
-        padding: 1em 3em 2em 3em;
-        margin: 2em auto;
+        max-width: 30em;
+        padding: 4.5em 6em 6em 6em;
+        margin: 6em auto;
         background-color: #fff;
         border-radius: 4.2px;
         box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);

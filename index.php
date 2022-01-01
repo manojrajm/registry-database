@@ -97,9 +97,9 @@ $mysqli->close();
                 <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
                 <div class="login-form">
                      <?php if($_SESSION['name']){
-                        ?> You've logged in <?php echo  $_SESSION["name"]; ?>
+                        ?> Howdy, <?php echo  $_SESSION["name"]; ?>
                     <?php }
-                    else echo "<h2>You're not logged in</h2>"?>                     
+                    else echo "<h2></h2>"?>                     
                     </div>
                 <div class="search">
                     <label >
