@@ -136,8 +136,8 @@ if (isset($_REQUEST['delete'])) {
                                     <tr>
                                         <input type="text" hidden name="id" value="<?php echo $detail['id']; ?>">
 
-                                        <td><a class="edit" style="" href="edit.php?id=<?php echo $detail['id']; ?>">
-                                                <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Edit</a></td>
+                                        <td><a class="edit" style="" href="editdamage.php?id=<?php echo $detail['id']; ?>">
+                                                <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Update</a></td>
 
                                         <td> <i style="color:red;" class='far fa-trash-alt'></i>&nbsp;
                                             <input style="border: none;background:none;font-size:1rem;cursor:pointer;color:red" type="submit" name="delete" value="Delete">

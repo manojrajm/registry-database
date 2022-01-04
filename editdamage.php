@@ -7,10 +7,31 @@ $date = '' . $mydate['mday'] . '' . $mydate['month'] . '' . $mydate['year'] . ''
 
 $con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
 
-$sql = "SELECT * FROM list";
-$Sql_query = mysqli_query($con, $sql);
-$details = mysqli_fetch_all($Sql_query, MYSQLI_ASSOC);
+$conn = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
+if (!$conn) {
+    echo "The database is not connected";
+}
+$id = $_GET['id'];
 
+$qry = mysqli_query($conn, "select * from list where id='$id'");
+
+$data = mysqli_fetch_array($qry);
+
+if (isset($_POST['update'])) {
+    $returndate = $_POST['returndate'];
+    $damage = $_POST['damage'];
+    $returnbutton = $_POST['returnbutton'];
+
+    $edit = mysqli_query($conn, "update list set returnbutton='$returnbutton', returndate='$returndate', damage='$damage' where id='$id'");
+
+    if ($edit) {
+        mysqli_close($conn);
+        header("location:list.php");
+        exit;
+    } else {
+        echo mysqli_error($conn);
+    }
+}
 
 if (isset($_REQUEST['delete'])) {
     $id = $_REQUEST['id'];
@@ -109,53 +130,60 @@ if (isset($_REQUEST['delete'])) {
                 </div>
 
                 <div class="containerr">
-                    <form method="GET">
+                    <form method="POST">
                         <div class="row">
-                            <h4>DETAILS</h4>
+                            <h4>UPDATE RETURN DATE AND DAMAGE</h4>
+                            <br>
+                            <label for="">Name</label>
                             <div class="input-group input-group-icon">
-                                <input type="text" name="name" style="text-transform: uppercase;"  placeholder="FULL NAME" required />
+                                <input type="text" id="lname" name="name" value="<?php echo $data['name'] ?>" disabled>
                                 <div class="input-icon"><i class="fa fa-user"></i></div>
                             </div>
-                            <!-- <div class="input-group input-group-icon">
-                                <input type="email" name="email" placeholder="Email Adress" />
-                                <div class="input-icon"><i class="fa fa-envelope"></i></div>
-                            </div> -->
+
+                            <label for="">Roll Number</label>
                             <div class="input-group input-group-icon">
-                                <input type="text" name="rollnumber" style="text-transform: uppercase;" placeholder="Roll Number" />
+                                <input type="text" id="fname" name="rollnumber" value="<?php echo $data['rollnumber'] ?>" disabled>
                                 <div class="input-icon"><i class="fa fa-user-graduate"></i></div>
                             </div>
+
+                            <label>Number</label>
                             <div class="input-group input-group-icon">
-                                <input type="text" name="number" placeholder="Number" />
+                                <input type="text" name="damage" value="<?php echo $data['number'] ?>" disabled>
                                 <div class="input-icon"><i class="fa fa-mobile"></i></div>
                             </div>
-                            <div >
-                                <input type="text" name="components" placeholder="Components" />
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-half">
-                                <h4>ISSUE DATE</h4>
-                                <div class="input-group">
-                                    <div class="col-third">
-                                        <input type="text" name="issuedate" placeholder="DD"
-                                         value="<?php echo date('d', strtotime($date));?>" />
-                                    </div>
-                                    <div class="col-third">
-                                        <input type="text" name="issuemonth" placeholder="MM"
-                                        value="<?php echo date('m', strtotime($date));?>" />
-                                    </div>
-                                    <div class="col-third">
-                                        <input type="text" name="issueyear" placeholder="YYYY"
-                                        value="<?php echo date('y', strtotime($date));?>" />
-                                        <input type="text" name="returnbutton" value="0" hidden>
-                                        <input type="text" name="damage" value="0" hidden>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <input style="border-color: #03a9f4;" type="submit" value="Add" name="submit">
 
+                            <label for="">Components</label>
+                            <div>
+                                <input type="text" id="lname" name="components" value="<?php echo $data['components'] ?>" disabled>
+                            </div>
+                            <br>
+
+                            <label for="">Damage</label>
+                            <div>
+                                <input type="text" name="damage" value="<?php echo $data['damage'] ?>" Required>
+                            </div>
+                            <br>
+
+                            <label for="">Issue date</label>
+                            <div>
+                                <input type="text" id="lname" name="issuedate" value="<?php echo $data['issuedate'] ?>" disabled>
+                            </div>
+                            <br>
+
+                            <label for="">Returned or Not</label>
+                            <div>
+                                <input type="text" id="lname" name="returnbutton" value="1" required>
+                            </div>
+                            <br>
+                            
+                            <label for="">Return Date</label>
+                            <div>
+                                <input type="date" id="lname" name="returndate" value="<?php echo $data['returndate'] ?>" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <input style="border-color: #03a9f4;" type="submit" name="update" value="Update">
                         </div>
                     </form>
                 </div>

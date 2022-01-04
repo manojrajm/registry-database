@@ -30,8 +30,6 @@ if(isset($_POST['update']))
 }
 ?>
 
-
-
 <h3>Update return date</h3>
 <div class="container">
         <form method="POST">
@@ -159,14 +157,11 @@ if(isset($_POST['update']))
             margin-top: 6px;
         }
 
-        /* Clear floats after the columns */
         .row:after {
             content: "";
             display: table;
             clear: both;
         }
-
-        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 600px) {
 
             .col-25,

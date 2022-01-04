@@ -9,7 +9,7 @@
         $course_id=$_GET['id'];
  
         $sql="UPDATE list SET 
-            damage=1 WHERE id='$course_id'";
+            damage!=0 WHERE id='$course_id'";
 
         mysqli_query($con,$sql);
     }
