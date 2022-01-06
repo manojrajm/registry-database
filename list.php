@@ -27,8 +27,7 @@ if (isset($_REQUEST['delete'])) {
     <!-- <meta http-equiv="refresh" content="2"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-     integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <title>IoT</title>
 
 </head>
@@ -70,163 +69,163 @@ if (isset($_REQUEST['delete'])) {
                     </a>
                 </li>
                 <li>
-                <?php if($_SESSION['name']){?>
-                    <a href="./logout.php">
-                        <span class="icon">
-                        <i class="fas fa-sign-out-alt"></i>
-                        </span>
-                        <span class="title">Logout</span>
-                    </a>
+                    <?php if ($_SESSION['name']) { ?>
+                        <a href="./logout.php">
+                            <span class="icon">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </span>
+                            <span class="title">Logout</span>
+                        </a>
                     <?php } else echo "<a href='./signin.php'>
                         <span class='icon'>
                             <i class='fas fa-sign-in-alt'></i>
                         </span>
                         <span class='title'>Login</span>
-                    </a>"?>
+                    </a>" ?>
                 </li>
             </ul>
         </div>
-<?php if($_SESSION['admin'] == 1)
-{?>
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
-                <div class="login-form">
-                     <?php if($_SESSION['name']){
+        
+            <div class="main">
+                <div class="topbar">
+                    <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
+                    <div class="login-form">
+                        <?php if ($_SESSION['name']) {
                         ?> Howdy, <?php echo  $_SESSION["name"]; ?>
-                    <?php }
-                    else echo "<h2></h2>"?>                     
+                        <?php } else echo "<h2></h2>" ?>
                     </div>
-               
-                <div class="search">
-                    <label>
-                        <input type="text" id="gfg" placeholder="Search Here" title="Type in a name">
-                        <i class="fas fa-search"></i>
-                    </label>
+
+                    <div class="search">
+                        <label>
+                            <input type="text" id="gfg" placeholder="Search Here" title="Type in a name">
+                            <i class="fas fa-search"></i>
+                        </label>
+                    </div>
                 </div>
-            </div>
+                <?php if ($_SESSION['admin'] == 1) { ?>
+                <div class="details">
+                    <div class="recentOrders">
+                        <div class="cardHeader">
+                            <h2>LIST</h2>
+                            <a class="btn" onclick="ExportToExcel('xlsx')">
 
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>LIST</h2>
-                        <a class="btn" onclick="ExportToExcel('xlsx')">
-
-                            <i class="fas fa-cloud-download"></i>&nbsp;
-                            Download</a>
-                    </div>
-                    <form method="GET">
-                        <table id="myTable">
-                            <thead>
-                                <tr>
-                                    <td> </td>
-                                    <td> </td>
-                                    <!-- <td>S.no</td> -->
-                                    <td>RollNumber</td>
-                                    <td>Name</td>
-                                    <td>Components</td>
-                                    <td>Issued Date</td>
-                                    <td>Return Date</td>
-                                    <td>Damage</td>
-                                    <td>Status</td>
-                                </tr>
-                            </thead>
-                            <tbody id="geeks">
-                                <?php foreach ($details as $detail) { ?>
+                                <i class="fas fa-cloud-download"></i>&nbsp;
+                                Download</a>
+                        </div>
+                        <form method="GET">
+                            <table id="myTable">
+                                <thead>
                                     <tr>
-                                        <input type="text" hidden name="id" value="<?php echo $detail['id']; ?>">
-
-                                        <td><a class="edit" style="" href="editdamage.php?id=<?php echo $detail['id']; ?>">
-                                                <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Update</a></td>
-
-                                        <td> <i style="color:red;" class='far fa-trash-alt'></i>&nbsp;
-                                            <input style="border: none;background:none;font-size:1rem;cursor:pointer;color:red" type="submit" name="delete" value="Delete">
-                                        </td>
-
-                                        <!-- <td><?php echo $detail['id'] ?></td> -->
-
-                                        <td><?php echo $detail['rollnumber']; ?></td>
-
-                                        <td><?php echo $detail['name']; ?></td>
-
-                                        <td><?php echo $detail['components']; ?></td>
-
-                                        <td><?php echo $detail['issuedate']; ?></td>
-
-                                        <td><?php echo $detail['returndate']; ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ($detail['damage'] == "0")
-                                                echo
-                                                "<a class='danger' href=damageyes.php?id=" . $detail['id'] . " >No</a>";
-                                            else
-                                                echo
-                                                "<a class='success' href=damageno.php?id=" . $detail['id'] . " >Yes</a>";
-                                            ?>
-                                        </td>
-                                        <td><?php
-                                            if ($detail['returnbutton'] == "0")
-                                                echo
-                                                "<a class='danger' href=deactivate.php?id=" . $detail['id'] . " >Not Yet</a>";
-                                            else
-                                                echo
-                                                "<a class='success' href=activate.php?id=" . $detail['id'] . " > Returned </a>";
-                                            ?>
-                                        </td>
+                                        <td> </td>
+                                        <td> </td>
+                                        <!-- <td>S.no</td> -->
+                                        <td>RollNumber</td>
+                                        <td>Name</td>
+                                        <td>Components</td>
+                                        <td>Issued Date</td>
+                                        <td>Return Date</td>
+                                        <td>Damage</td>
+                                        <td>Status</td>
                                     </tr>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                    </form>
+                                </thead>
+                                <tbody id="geeks">
+                                    <?php foreach ($details as $detail) { ?>
+                                        <tr>
+                                            <input type="text" hidden name="id" value="<?php echo $detail['id']; ?>">
+
+                                            <td><a class="edit" style="" href="editdamage.php?id=<?php echo $detail['id']; ?>">
+                                                    <i style="font-size: 1em;" class="far fa-pencil-alt"></i>Update</a></td>
+
+                                            <td> <i style="color:red;" class='far fa-trash-alt'></i>&nbsp;
+                                                <input style="border: none;background:none;font-size:1rem;cursor:pointer;color:red" type="submit" name="delete" value="Delete">
+                                            </td>
+
+                                            <!-- <td><?php echo $detail['id'] ?></td> -->
+
+                                            <td><?php echo $detail['rollnumber']; ?></td>
+
+                                            <td><?php echo $detail['name']; ?></td>
+
+                                            <td><?php echo $detail['components']; ?></td>
+
+                                            <td><?php echo $detail['issuedate']; ?></td>
+
+                                            <td><?php echo $detail['returndate']; ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                if ($detail['damage'] == "0")
+                                                    echo
+                                                    "<a class='danger' href=damageyes.php?id=" . $detail['id'] . " >No</a>";
+                                                else
+                                                    echo
+                                                    "<a class='success' href=damageno.php?id=" . $detail['id'] . " >Yes</a>";
+                                                ?>
+
+                                        </td>
+
+                                            <td><?php
+                                                if ($detail['returnbutton'] == "0")
+                                                    echo
+                                                    "<a class='danger' href=deactivate.php?id=" . $detail['id'] . " >Not Yet</a>";
+                                                else
+                                                    echo
+                                                    "<a class='success' href=activate.php?id=" . $detail['id'] . " > Returned </a>";
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-       
+
     </div>
-    <?php } else echo "<div class='notlogged'>  This page is restricted.Ask your Admin </div>"?>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<?php } else echo "<div class='notlogged'>  This page is restricted.Ask your Admin </div>" ?>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-    </script>
+<script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
 
-    <script>
-        function Toggle() {
-            let toggle = document.querySelector('.toggle');
-            toggle.classList.toggle('active');
-            let navigation = document.querySelector('.navigation');
-            navigation.classList.toggle('active');
-            let main = document.querySelector('.main');
-            main.classList.toggle('active');
-        }
+<script>
+    function Toggle() {
+        let toggle = document.querySelector('.toggle');
+        toggle.classList.toggle('active');
+        let navigation = document.querySelector('.navigation');
+        navigation.classList.toggle('active');
+        let main = document.querySelector('.main');
+        main.classList.toggle('active');
+    }
 
-        function ExportToExcel(type, fn, dl) {
-            var elt = document.getElementById('myTable');
-            var wb = XLSX.utils.table_to_book(elt, {
-                sheet: "sheet1"
-            });
-            return dl ?
-                XLSX.write(wb, {
-                    bookType: type,
-                    bookSST: true,
-                    type: 'base64'
-                }) :
-                XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
-        }
+    function ExportToExcel(type, fn, dl) {
+        var elt = document.getElementById('myTable');
+        var wb = XLSX.utils.table_to_book(elt, {
+            sheet: "sheet1"
+        });
+        return dl ?
+            XLSX.write(wb, {
+                bookType: type,
+                bookSST: true,
+                type: 'base64'
+            }) :
+            XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
 
-        $(document).ready(function() {
-            $("#gfg").on("keyup", function() {
-                var value = $(this).val().toLowerCase();
-                $("#geeks tr").filter(function() {
-                    $(this).toggle($(this).text()
-                        .toLowerCase().indexOf(value) > -1)
-                });
+    $(document).ready(function() {
+        $("#gfg").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#geeks tr").filter(function() {
+                $(this).toggle($(this).text()
+                    .toLowerCase().indexOf(value) > -1)
             });
         });
-    </script>
+    });
+</script>
 </body>
 
 </html>
@@ -234,11 +233,13 @@ if (isset($_REQUEST['delete'])) {
 <style>
     /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap'); */
     @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
-        .notlogged{
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+
+    .notlogged {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
     .edit {
         color: darkblue;
         text-decoration: none

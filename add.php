@@ -90,13 +90,13 @@ if (isset($_REQUEST['delete'])) {
                 </li>
             </ul>
         </div>
-        <?php if ($_SESSION['admin'] == 1) { ?>
+
             <div class="main">
                 <div class="topbar">
                     <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>
                     <div class="login-form">
                         <?php if ($_SESSION['name']) {
-                        ?> You've logged in <?php echo  $_SESSION["name"]; ?>
+                        ?> Howdy, <?php echo  $_SESSION["name"]; ?>
                         <?php } else echo "<h2>You've not logged in</h2>" ?>
                     </div>
 
@@ -107,7 +107,7 @@ if (isset($_REQUEST['delete'])) {
                         </label>
                     </div>
                 </div>
-
+        <?php if ($_SESSION['admin'] == 1) { ?>
                 <div class="containerr">
                     <form method="GET">
                         <div class="row">
