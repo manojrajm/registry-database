@@ -5,9 +5,9 @@ include "connection.php";
 $mydate = getdate(date("U"));
 $date = '' . $mydate['mday'] . '' . $mydate['month'] . '' . $mydate['year'] . '';
 
-$con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
+$con = mysqli_connect("localhost","root","ManojRaj@1","component");
 
-$conn = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
+$conn = mysqli_connect("localhost","root","ManojRaj@1","component");
 if (!$conn) {
     echo "The database is not connected";
 }
@@ -111,7 +111,7 @@ if (isset($_REQUEST['delete'])) {
                 </li>
             </ul>
         </div>
-        <?php if ($_SESSION['admin'] == 1) { ?>
+        <?php if ($_SESSION['admin'] == 2) { ?>
             <div class="main">
                 <div class="topbar">
                     <div class="toggle" onclick="Toggle()"><i class="fas fa-bars"></i></div>

@@ -3,7 +3,7 @@
 <?php
   
 
-    $con=mysqli_connect("localhost","Bala","Bala@2703","iot-component");
+    $con=mysqli_connect("localhost","root","ManojRaj@1","component");
   
     if (isset($_GET['id'])){
   

@@ -1,5 +1,5 @@
 <?php
-    $conn = mysqli_connect("localhost" , "Bala" , "Bala@2703" , "iot-component");
+    $conn = mysqli_connect("localhost","root","ManojRaj@1","component");
     if(!$conn){
         echo "Not connected to Database";
     }

@@ -5,7 +5,7 @@ include "connection.php";
 $mydate = getdate(date("U"));
 $date = '' . $mydate['mday'] . '' . $mydate['month'] . '' . $mydate['year'] . '';
 
-$con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
+$con = mysqli_connect("localhost","root","ManojRaj@1","component");
 
 $sql = "SELECT * FROM list";
 $Sql_query = mysqli_query($con, $sql);
@@ -107,7 +107,7 @@ if (isset($_REQUEST['delete'])) {
                         </label>
                     </div>
                 </div>
-        <?php if ($_SESSION['admin'] == 1) { ?>
+        <?php if ($_SESSION['admin'] == 2) { ?>
                 <div class="containerr">
                     <form method="GET">
                         <div class="row">

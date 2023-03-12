@@ -1,5 +1,5 @@
 <?php 
-            $conn = mysqli_connect("localhost" , "Bala" , "Bala@2703" , "iot-component");
+            $conn = mysqli_connect("localhost","root","ManojRaj@1","component");
 
             if(!$conn)
             {
@@ -264,7 +264,7 @@ include "connection.php";
 $mydate = getdate(date("U"));
 $date = '' . $mydate['mday'] . '' . $mydate['month'] . '' . $mydate['year'] . '';
 
-$con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
+$con = mysqli_connect("localhost","root","ManojRaj@1","component");
 
 $sql = "SELECT * FROM list";
 $Sql_query = mysqli_query($con, $sql);
@@ -283,7 +283,7 @@ if (isset($_REQUEST['delete'])) {
 
 
 <?php 
-        $conn = mysqli_connect("localhost" , "Bala" , "Bala@2703" , "iot-component");
+        $conn = mysqli_connect("localhost","root","ManojRaj@1","component");
 
         if(!$conn)
         {

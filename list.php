@@ -1,6 +1,6 @@
 <?php
 session_start();
-$con = mysqli_connect("localhost", "Bala", "Bala@2703", "iot-component");
+$con = mysqli_connect("localhost","root","ManojRaj@1","component");
 
 $sql = "SELECT * FROM list";
 $Sql_query = mysqli_query($con, $sql);
@@ -102,7 +102,7 @@ if (isset($_REQUEST['delete'])) {
                         </label>
                     </div>
                 </div>
-                <?php if ($_SESSION['admin'] == 1) { ?>
+                <?php if ($_SESSION['admin'] == 2) { ?>
                 <div class="details">
                     <div class="recentOrders">
                         <div class="cardHeader">
@@ -248,6 +248,7 @@ if (isset($_REQUEST['delete'])) {
     .success {
         border-radius: 6px;
         padding: 8px 15px;
+        
         background: #f4b41a;
         text-decoration: none;
         color: black;

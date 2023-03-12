@@ -2,9 +2,9 @@
     session_start();
 
 $databaseHost = 'localhost';   //your db host 
-$databaseName = 'iot-component';  //your db name 
-$databaseUsername = 'Bala';    //your db username 
-$databasePassword = 'Bala@2703'; //   db password 
+$databaseName = 'component';  //your db name 
+$databaseUsername = 'root';    //your db username 
+$databasePassword = 'ManojRaj@1'; //   db password 
 
 $mysqli = mysqli_connect($databaseHost, $databaseUsername, $databasePassword, $databaseName);
 
@@ -326,7 +326,7 @@ $mysqli->close();
         width: calc(100% - 250px);
         left: 250px;
         min-height: 100vh;
-        background: #f5f5f5;
+        background: #4183c4;
         transition: 0.5s;
     }
 
