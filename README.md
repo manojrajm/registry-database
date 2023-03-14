@@ -9,6 +9,8 @@
 - MYSQL
 - Appache 
 
+![alt text](https://github.com/manojrajm/registry-database/blob/main/op.png?raw=true)
+
 This project allows admin to create record entries for lent components from an inventory.
 It stores information such as Name,RollNumber,and Contact Number as well as the ocmponent they have taken along with the date.
 # Tools:
