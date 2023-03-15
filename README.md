@@ -13,12 +13,7 @@
 
 This project allows admin to create record entries for lent components from an inventory.
 It stores information such as Name,RollNumber,and Contact Number as well as the ocmponent they have taken along with the date.
-# Tools:
-- HTML
-- Css
-- JS
-- PHP
-- MySQL
+
 
 
 When a entry is created it is stored in MySQL Database and then displayed using a webpage in which users will be able to view their compoenent record using their login credentials.
